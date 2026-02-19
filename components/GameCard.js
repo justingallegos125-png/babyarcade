@@ -39,7 +39,7 @@ const GameCard = ({ game, isFavorite, onToggleFavorite, onClick }) => {
         </div>
 
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-           <span className="text-white font-black text-2xl uppercase rgb-text tracking-widest">[ PLAY_NOW ]</span>
+           <span className="text-white font-black text-2xl uppercase rgb-text tracking-widest">[ PLAY NOW ]</span>
         </div>
       </div>
       

@@ -4,99 +4,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Justin's Arcade</title>
+    <title>Joshy's Arcade</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
 
       :root {
-        --retro-dark: #000000;
+        --retro-dark: #050505;
       }
 
       body {
         background-color: var(--retro-dark);
         color: #fff;
         margin: 0;
-        font-family: 'VT323', monospace;
-        letter-spacing: 1px;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        letter-spacing: -0.01em;
         overflow-x: hidden;
+        image-rendering: auto;
       }
 
-      /* Enhanced RGB Rainbow Animations */
       @keyframes rgb-cycle {
-        0% { border-color: #ff0000; box-shadow: 0 0 10px #ff0000; }
-        17% { border-color: #ff8800; box-shadow: 0 0 10px #ff8800; }
-        33% { border-color: #ffff00; box-shadow: 0 0 10px #ffff00; }
-        50% { border-color: #00ff00; box-shadow: 0 0 10px #00ff00; }
-        67% { border-color: #00ffff; box-shadow: 0 0 10px #00ffff; }
-        83% { border-color: #0000ff; box-shadow: 0 0 10px #0000ff; }
-        100% { border-color: #ff00ff; box-shadow: 0 0 10px #ff00ff; }
+        0% { border-color: #ff0000; box-shadow: 0 0 5px #ff0000; }
+        33% { border-color: #00ff00; box-shadow: 0 0 5px #00ff00; }
+        66% { border-color: #0000ff; box-shadow: 0 0 5px #0000ff; }
+        100% { border-color: #ff0000; box-shadow: 0 0 5px #ff0000; }
       }
 
       @keyframes rgb-text {
-        0% { color: #ff0000; text-shadow: 0 0 15px #ff0000; }
-        17% { color: #ff8800; text-shadow: 0 0 15px #ff8800; }
-        33% { color: #ffff00; text-shadow: 0 0 15px #ffff00; }
-        50% { color: #00ff00; text-shadow: 0 0 15px #00ff00; }
-        67% { color: #00ffff; text-shadow: 0 0 15px #00ffff; }
-        83% { color: #0000ff; text-shadow: 0 0 15px #0000ff; }
-        100% { color: #ff00ff; text-shadow: 0 0 15px #ff00ff; }
+        0% { color: #ff0000; text-shadow: 1px 1px 0px rgba(255,0,0,0.2); }
+        33% { color: #00ff00; text-shadow: 1px 1px 0px rgba(0,255,0,0.2); }
+        66% { color: #0000ff; text-shadow: 1px 1px 0px rgba(0,0,255,0.2); }
+        100% { color: #ff0000; text-shadow: 1px 1px 0px rgba(255,0,0,0.2); }
       }
 
       @keyframes rgb-bg {
         0% { background-color: #ff0000; }
-        17% { background-color: #ff8800; }
-        33% { background-color: #ffff00; }
-        50% { background-color: #00ff00; }
-        67% { background-color: #00ffff; }
-        83% { background-color: #0000ff; }
-        100% { background-color: #ff00ff; }
+        33% { background-color: #00ff00; }
+        66% { background-color: #0000ff; }
+        100% { background-color: #ff0000; }
       }
 
       .rgb-border {
         border-width: 2px;
         border-style: solid;
-        animation: rgb-cycle 3s infinite linear;
+        animation: rgb-cycle 4s infinite linear;
       }
 
       .rgb-text {
-        animation: rgb-text 3s infinite linear;
+        animation: rgb-text 4s infinite linear;
       }
 
       .rgb-bg {
-        animation: rgb-bg 3s infinite linear;
+        animation: rgb-bg 4s infinite linear;
       }
 
-      /* CRT Scanline Effect */
       body::before {
         content: " ";
         display: block;
         position: fixed;
         top: 0; left: 0; bottom: 0; right: 0;
-        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.005), rgba(0, 0, 255, 0.01));
         z-index: 9999;
         background-size: 100% 2px, 3px 100%;
         pointer-events: none;
-      }
-
-      body::after {
-        content: " ";
-        display: block;
-        position: fixed;
-        top: 0; left: 0; bottom: 0; right: 0;
-        background: rgba(18, 16, 16, 0.05);
-        opacity: 0;
-        z-index: 9999;
-        pointer-events: none;
-        animation: flicker 0.15s infinite;
-      }
-
-      @keyframes flicker {
-        0% { opacity: 0.2; }
-        5% { opacity: 0.3; }
-        10% { opacity: 0.2; }
-        100% { opacity: 0.25; }
       }
 
       .retro-text-shadow {
@@ -106,25 +77,48 @@
       input, select, textarea {
         background: #000 !important;
         border: 2px solid #fff !important;
-        animation: rgb-cycle 3s infinite linear !important;
+        animation: rgb-cycle 4s infinite linear !important;
         color: #fff !important;
-        font-family: 'VT323', monospace !important;
+        font-family: 'JetBrains Mono', monospace !important;
         text-transform: uppercase;
         outline: none;
+        font-size: 0.875rem;
       }
 
-      ::-webkit-scrollbar { width: 10px; }
+      .font-mono-readable {
+        font-family: 'JetBrains Mono', monospace;
+      }
+
+      ::-webkit-scrollbar { width: 8px; }
       ::-webkit-scrollbar-track { background: #000; }
-      ::-webkit-scrollbar-thumb { animation: rgb-bg 3s infinite linear; background-color: #fff; }
+      ::-webkit-scrollbar-thumb { background-color: #333; border: 1px solid #555; }
 
       .glitch {
-        animation: glitch 1s linear infinite;
+        animation: glitch 1.5s linear infinite;
       }
 
       @keyframes glitch {
-        2%, 64% { transform: translate(2px, 0) skew(0deg); }
-        4%, 60% { transform: translate(-2px, 0) skew(0deg); }
-        62% { transform: translate(0, 0) skew(5deg); }
+        2%, 64% { transform: translate(0.5px, 0) skew(0deg); }
+        4%, 60% { transform: translate(-0.5px, 0) skew(0deg); }
+        62% { transform: translate(0, 0) skew(1deg); }
+      }
+
+      .pixel-corner {
+        position: relative;
+      }
+      .pixel-corner::after {
+        content: '';
+        position: absolute;
+        inset: -4px;
+        border: 1px solid white;
+        pointer-events: none;
+        opacity: 0.1;
+      }
+
+      h1, h2, h3, h4 {
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        line-height: 1;
       }
     </style>
     <script type="importmap">
