@@ -1,19 +1,10 @@
 
 import React from 'react';
 
-interface NavbarProps {
-  searchQuery: string;
-  setSearchQuery: (query: string) => void;
-  onHome: () => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ searchQuery, setSearchQuery, onHome }) => {
+const Navbar = ({ searchQuery, setSearchQuery, onHome }) => {
   return (
     <nav className="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800 px-4 py-3 flex items-center justify-between">
-      <div 
-        className="flex items-center gap-2 cursor-pointer group"
-        onClick={onHome}
-      >
+      <div className="flex items-center gap-2 cursor-pointer group" onClick={onHome}>
         <div className="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:scale-110 transition-transform">
           <i className="fas fa-gamepad text-white text-xl"></i>
         </div>
@@ -36,18 +27,9 @@ const Navbar: React.FC<NavbarProps> = ({ searchQuery, setSearchQuery, onHome }) 
       </div>
 
       <div className="flex items-center gap-4">
-        <button 
-          onClick={onHome}
-          className="p-2 hover:bg-slate-800 rounded-full text-slate-400 hover:text-white transition-colors"
-          title="Home"
-        >
+        <button onClick={onHome} className="p-2 hover:bg-slate-800 rounded-full text-slate-400 hover:text-white transition-colors">
           <i className="fas fa-home text-lg"></i>
         </button>
-        <div className="hidden md:flex items-center gap-2">
-           <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center border border-slate-700">
-             <i className="fas fa-user text-xs"></i>
-           </div>
-        </div>
       </div>
     </nav>
   );

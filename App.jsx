@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
-import Navbar from './components/Navbar';
-import GameCard from './components/GameCard';
-import GamePlayer from './components/GamePlayer';
+import Navbar from './components/Navbar.jsx';
+import GameCard from './components/GameCard.jsx';
+import GamePlayer from './components/GamePlayer.jsx';
 import { GAMES, CATEGORIES } from './constants.js';
 
 const App = () => {
