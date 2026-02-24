@@ -1,34 +1,77 @@
 
 import React from 'react';
 
-const Navbar = ({ searchQuery, setSearchQuery, onHome }) => {
+interface NavbarProps {
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
+  onHome: () => void;
+  onOpenLoader: () => void;
+  onOpenData: () => void;
+  onOpenHelp: () => void;
+  onOpenProxy: () => void;
+  onOpenCustom: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ searchQuery, setSearchQuery, onHome, onOpenLoader, onOpenData, onOpenHelp, onOpenProxy, onOpenCustom }) => {
   return (
-    <nav className="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800 px-4 py-3 flex items-center justify-between">
-      <div className="flex items-center gap-2 cursor-pointer group" onClick={onHome}>
-        <div className="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:scale-110 transition-transform">
-          <i className="fas fa-gamepad text-white text-xl"></i>
+    <nav className="bg-black/80 border-4 border-accent px-6 py-3 flex items-center justify-between rounded-full backdrop-blur-md shadow-[0_0_30px_rgba(255,0,255,0.1)]">
+      <div className="flex items-center gap-4 cursor-pointer group" onClick={onHome}>
+        <div className="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center group-hover:scale-105 transition-all">
+          <i className="fas fa-gamepad text-white group-hover:text-accent text-xl"></i>
         </div>
-        <span className="text-xl font-bold tracking-tight hidden sm:block">
-          NEXUS<span className="text-indigo-500">GAMES</span>
+        <span className="text-2xl font-black tracking-tighter hidden lg:block select-none retro-text-shadow text-accent glitch text-nowrap uppercase font-graffiti">
+          Joshy's Arcade
         </span>
       </div>
 
-      <div className="flex-1 max-w-xl mx-4">
-        <div className="relative">
-          <i className="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"></i>
+      <div className="flex-1 max-w-md mx-6">
+        <div className="relative group">
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-accent text-lg font-bold">&gt;</span>
           <input
             type="text"
-            placeholder="Search for games..."
+            placeholder="SEARCH..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-slate-800 border border-slate-700 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+            className="w-full bg-transparent border-2 border-accent/30 rounded-full py-1.5 pl-10 pr-6 focus:border-accent transition-all text-sm uppercase font-mono-readable"
           />
         </div>
       </div>
 
-      <div className="flex items-center gap-4">
-        <button onClick={onHome} className="p-2 hover:bg-slate-800 rounded-full text-slate-400 hover:text-white transition-colors">
-          <i className="fas fa-home text-lg"></i>
+      <div className="flex gap-2">
+        <button 
+          onClick={onOpenProxy} 
+          className="border-2 border-secondary px-3 h-10 flex items-center justify-center text-white hover:bg-secondary hover:text-black transition-all font-black text-[10px] uppercase tracking-tighter rounded-full"
+          title="CYBER PROXY"
+        >
+          <i className="fas fa-network-wired mr-2"></i> [ PROXY ]
+        </button>
+        <button 
+          onClick={onOpenCustom} 
+          className="border-2 border-accent w-10 h-10 flex items-center justify-center text-white hover:bg-accent hover:text-black transition-all rounded-full"
+          title="CUSTOMIZE OS"
+        >
+          <i className="fas fa-palette text-sm"></i>
+        </button>
+        <button 
+          onClick={onOpenHelp} 
+          className="border-2 border-accent w-10 h-10 flex items-center justify-center text-white hover:bg-accent hover:text-black transition-all rounded-full"
+          title="SYSTEM GUIDE"
+        >
+          <i className="fas fa-question text-sm"></i>
+        </button>
+        <button 
+          onClick={onOpenData} 
+          className="border-2 border-accent px-3 h-10 flex items-center justify-center text-white hover:bg-accent hover:text-black transition-all font-black text-[10px] uppercase tracking-tighter rounded-full"
+          title="BACKUP DATA"
+        >
+          <i className="fas fa-database mr-2"></i> [ DATA ]
+        </button>
+        <button 
+          onClick={onOpenLoader} 
+          className="border-2 border-accent px-3 h-10 flex items-center justify-center text-white hover:bg-accent hover:text-black transition-all font-black text-[10px] uppercase tracking-tighter rounded-full"
+          title="LOAD GAMES"
+        >
+          <i className="fas fa-upload mr-2"></i> [ LOAD ]
         </button>
       </div>
     </nav>

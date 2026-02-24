@@ -13,8 +13,14 @@ export interface Game {
   id: string;
   title: string;
   description: string;
-  thumbnail: string;
+  thumbnail?: string;
   iframeUrl: string;
   category: string;
   tags: string[];
+  htmlContent?: string;
+}
+
+export interface DataPackage {
+  localGames: Game[];
+  favorites: string[];
 }
