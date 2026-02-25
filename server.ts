@@ -97,6 +97,24 @@ async function startServer() {
       appType: "spa",
     });
     app.use(vite.middlewares);
+    
+    // Serve index.html for all non-API routes in dev
+    app.get("*", async (req, res, next) => {
+      const url = req.originalUrl;
+      if (url.startsWith('/api/')) return next();
+      
+      try {
+        let template = await (await import("fs")).readFileSync(
+          path.resolve(__dirname, "index.html"),
+          "utf-8"
+        );
+        template = await vite.transformIndexHtml(url, template);
+        res.status(200).set({ "Content-Type": "text/html" }).end(template);
+      } catch (e) {
+        vite.ssrFixStacktrace(e as Error);
+        next(e);
+      }
+    });
   } else {
     // Serve static files in production
     app.use(express.static(path.join(__dirname, "dist")));
