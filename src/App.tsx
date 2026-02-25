@@ -41,7 +41,7 @@ const AuthGate = ({ onCorrect }: { onCorrect: () => void }) => {
           <p className="text-secondary text-[10px] font-mono">ENCRYPTION: AES-256-GCM - PROXY NODE: ACTIVE</p>
         </div>
         
-        <h1 className="text-4xl font-black mb-8 text-center tracking-widest glitch text-accent font-graffiti">SYSTEM ACCESS</h1>
+        <h1 className="text-4xl font-black mb-8 text-center tracking-widest glitch text-accent font-graffiti text-glow">SYSTEM ACCESS</h1>
         
         <form onSubmit={check} className="space-y-6">
           <div className="space-y-2">
@@ -54,7 +54,7 @@ const AuthGate = ({ onCorrect }: { onCorrect: () => void }) => {
               onChange={(e) => setPass(e.target.value)}
             />
           </div>
-          <button type="submit" className="w-full border-4 border-accent text-white py-4 hover:bg-accent hover:text-black transition-all font-black uppercase tracking-widest shadow-[0_0_15px_rgba(255,0,255,0.3)]">
+          <button type="submit" className="w-full border-4 border-accent text-white py-4 hover:bg-accent hover:text-black transition-all font-black uppercase tracking-widest box-glow">
             [ INITIALIZE CORE ]
           </button>
           {error && <p className="text-red-500 text-center font-bold animate-pulse mt-4 uppercase text-xs">ERR: ACCESS DENIED - RETRY SEQUENCE</p>}
@@ -373,7 +373,7 @@ const App = () => {
                 <i className="fas fa-network-wired text-9xl text-white"></i>
               </div>
               <div className="relative">
-                <h1 className="text-8xl font-black mb-6 tracking-tighter glitch text-accent font-graffiti uppercase leading-none">
+                <h1 className="text-8xl font-black mb-6 tracking-tighter glitch text-accent font-graffiti uppercase leading-none text-glow">
                   JOSHY'S ARCADE
                 </h1>
                 <p className="text-2xl mb-12 text-secondary opacity-90 font-black uppercase tracking-widest flex items-center gap-3">
@@ -384,13 +384,13 @@ const App = () => {
                   <button 
                     disabled={allGames.length === 0}
                     onClick={() => setSelectedGame(allGames[Math.floor(Math.random() * allGames.length)])}
-                    className="bg-accent text-black border-4 border-black font-black py-5 px-12 transition-all flex items-center gap-3 uppercase text-2xl hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_#000]"
+                    className="bg-accent text-black border-4 border-black font-black py-5 px-12 transition-all flex items-center gap-3 uppercase text-2xl hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_#000] hover:box-glow"
                   >
                     <i className="fas fa-random"></i> [ RANDOM ]
                   </button>
                   <button 
                     onClick={() => setShowProxy(true)}
-                    className="bg-secondary text-white border-4 border-black font-black py-5 px-12 transition-all flex items-center gap-3 uppercase text-2xl hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_#000]"
+                    className="bg-secondary text-white border-4 border-black font-black py-5 px-12 transition-all flex items-center gap-3 uppercase text-2xl hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_#000] hover:box-glow"
                   >
                     <i className="fas fa-network-wired"></i> [ PROXY ]
                   </button>
@@ -442,7 +442,7 @@ const App = () => {
 
           {favoriteGames.length > 0 && !searchQuery && selectedCategory === 'All' && (
             <section className="mb-20">
-              <h2 className="text-4xl font-black mb-10 flex items-center gap-4 text-accent uppercase tracking-tighter font-graffiti">
+              <h2 className="text-4xl font-black mb-10 flex items-center gap-4 text-accent uppercase tracking-tighter font-graffiti text-glow">
                 <i className="fas fa-star"></i> FAVORITE GAMES
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
@@ -455,7 +455,7 @@ const App = () => {
 
           <section id="all-games">
             <div className="flex justify-between items-end mb-10">
-              <h2 className="text-4xl font-black text-accent uppercase tracking-tighter font-graffiti">
+              <h2 className="text-4xl font-black text-accent uppercase tracking-tighter font-graffiti text-glow">
                 {searchQuery ? `QUERY: "${searchQuery.toUpperCase()}"` : 'SYSTEM RESOURCES'}
               </h2>
               <span className="text-accent text-xl font-black opacity-50 font-mono">{filteredGames.length} GAMES LOCATED</span>
